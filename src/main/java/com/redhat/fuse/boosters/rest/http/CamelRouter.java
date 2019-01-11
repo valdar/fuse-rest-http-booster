@@ -34,6 +34,7 @@ public class CamelRouter extends RouteBuilder {
 
         from("direct:greetingsImpl").description("Greetings REST service implementation route")
             .streamCaching()
+            .to("log:gss.test?level=DEBUG")
             .to("bean:greetingsService?method=getGreetings");     
         // @formatter:on
     }
